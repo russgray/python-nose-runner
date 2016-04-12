@@ -1,6 +1,4 @@
-FROM python:2-alpine
-
-RUN apk add --update build-base postgresql-dev && rm -rf /var/cache/apk/*
+FROM python:2.7
 
 ENTRYPOINT ["nosetests", "--exe", "--verbosity=3", "-x", "--with-xunit", "--xunit-file=/test-runner/tests/test_output/xunit.xml"]
 VOLUME /test-runner/tests
